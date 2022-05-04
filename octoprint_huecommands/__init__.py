@@ -136,8 +136,8 @@ class hueCommands(  octoprint.plugin.StartupPlugin,
             elif cmd_id[:1]== 'S': state['sat'] = min([self.parseInt(cmd_id[1:]), 0xFE])
             elif cmd_id[:1]== 'V': state['sat'] = min([int(self.parseFloat(cmd_id[1:]) * 2.54 + 0.5), 0xFE])
             # Hue:
-            elif cmd_id[:1]== 'H': state['transitiontime'] = min([self.parseInt(cmd_id[1:]), 0xFFFF])
-            elif cmd_id[:1]== 'U': state['transitiontime'] = min([int(self.parseFloat(cmd_id[1:]) * 655.35 + 0.5), 0xFFFF])
+            elif cmd_id[:1]== 'H': state['hue'] = min([self.parseInt(cmd_id[1:]), 0xFFFF])
+            elif cmd_id[:1]== 'U': state['hue'] = min([int(self.parseFloat(cmd_id[1:]) * 655.35 + 0.5), 0xFFFF])
             # State
             elif cmd_id== 'ON':  state['on'] = True
             elif cmd_id== 'OFF': state['on'] = False
